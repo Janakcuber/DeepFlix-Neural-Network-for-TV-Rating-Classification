@@ -43,12 +43,12 @@ But the accuracy score doesn't tell the whole story. The `classification_report`
     * It predicted 247 'Adult' shows as 'Teens'.
     * It predicted 287 'Teens' shows as 'Adult'.
 
-**Why?** This makes perfect sense! My current features (like genre, duration, country) are too similar for both categories. An R-rated 'Adult' action movie and a PG-13 'Teens' action movie look almost identical to the model. It's missing the key information!
+My current features (like genre, duration, country) are too similar for both categories. An R-rated 'Adult' action movie and a PG-13 'Teens' action movie look almost identical to the model. It's missing the key information!
 
 ## Future Improvements
 
 This was a great learning experience. The 63.8% is a good baseline, but to make this *really* good, I'd focus on features:
 
-1.  **Use the Text Data!** The `description` column is the biggest untapped resource. Using **TF-IDF** on it would give the model the keywords (like "violence," "drug use," "romance") it needs to tell 'Teens' and 'Adults' apart. This would almost certainly fix the main confusion.
+1.  **Use the Text Data** The `description` column is the biggest untapped resource. Using **TF-IDF** on it would give the model the keywords (like "violence," "drug use," "romance") it needs to tell 'Teens' and 'Adults' apart. This would almost certainly fix the main confusion.
 2.  **Better Categoricals:** The `country` feature created hundreds of columns. I'd group rare countries into an "Other" category to reduce noise and help the model generalize better.
 3.  **Compare Models:** I'd compare this neural network's performance to a `RandomForestClassifier` to see which one performs better on this kind of tabular data.
